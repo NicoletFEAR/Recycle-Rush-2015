@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
  *
  */
 public class DriveTrain extends Subsystem {
-    SpeedController frontRight = new Talon(1);
-    SpeedController frontLeft = new Talon(2);
-    SpeedController backRight = new Talon(3);
-    SpeedController backLeft = new Talon(4);
+    SpeedController frontRight = new Talon(0);
+    SpeedController frontLeft = new Talon(1);
+    SpeedController backRight = new Talon(2);
+    SpeedController backLeft = new Talon(3);
     RobotDrive drive;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
