@@ -25,7 +25,7 @@ public class Drive extends Command {
     	double x = OI.driveStick.getRawAxis(Axes.leftControlStickX);
     	double y = OI.driveStick.getRawAxis(Axes.leftControlStickY);
     	double rotation = OI.driveStick.getRawAxis(Axes.rightControlStickX);
-    	Subsystems.driveTrain.driveWheels(x, y, rotation);
+    	Subsystems.driveTrain.driveWheelsTank(x, y);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -30,8 +30,12 @@ public class DriveTrain extends Subsystem {
         setDefaultCommand(new Drive());
     }
 
-	public void driveWheels(double x, double y, double rotation) {
+	public void driveWheelsMecanum(double x, double y, double rotation) {
 		drive.mecanumDrive_Cartesian(x, y, rotation, 0);
+	}
+	
+	public void driveWheelsTank(double leftValue, double rightValue){
+		drive.tankDrive(leftValue, rightValue, true);
 	}
 }
 
