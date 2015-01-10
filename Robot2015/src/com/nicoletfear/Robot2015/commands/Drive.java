@@ -22,10 +22,9 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double x = OI.driveStick.getRawAxis(Axes.leftControlStickX);
-    	double y = OI.driveStick.getRawAxis(Axes.leftControlStickY);
-    	double rotation = OI.driveStick.getRawAxis(Axes.rightControlStickX);
-    	Subsystems.driveTrain.driveWheelsTank(x, y);
+    	double leftStick = OI.driveStick.getRawAxis(Axes.leftControlStickY);
+    	double rightstick = OI.driveStick.getRawAxis(Axes.rightControlStickY);
+    	Subsystems.driveTrain.driveWheelsTank(leftStick, rightstick);
     }
 
     // Make this return true when this Command no longer needs to run execute()
