@@ -5,6 +5,8 @@ package com.nicoletfear.Robot2015.diagnostics;
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
@@ -24,32 +26,31 @@ import edu.wpi.first.wpilibj.Timer;
  * this system. Use IterativeRobot or Command-Based instead if you're new.
  */
 public class Robot extends SampleRobot {
-    RobotDrive myRobot;
-    Joystick stick;
 
     public Robot() {
-        myRobot = new RobotDrive(0, 1);
-        myRobot.setExpiration(0.1);
-        stick = new Joystick(0);
+      
     }
 
     /**
      * Drive left & right motors for 2 seconds then stop
      */
     public void autonomous() {
-        myRobot.setSafetyEnabled(false);
-        myRobot.drive(-0.5, 0.0);	// drive forwards half speed
-        Timer.delay(2.0);		//    for 2 seconds
-        myRobot.drive(0.0, 0.0);	// stop robot
+        
     }
 
     /**
      * Runs the motors with arcade steering.
      */
     public void operatorControl() {
-        myRobot.setSafetyEnabled(true);
+    	SpeedController frontRight = new Talon(0);
+        SpeedController frontLeft = new Talon(1);
+        SpeedController backRight = new Talon(2);
+        SpeedController backLeft = new Talon(3);
         while (isOperatorControl() && isEnabled()) {
-            myRobot.arcadeDrive(stick); // drive with arcade style (use right stick)
+            frontRight.set(0);
+            frontLeft.set(0);
+            backRight.set(0);
+            backLeft.set(0);
             Timer.delay(0.005);		// wait for a motor update time
         }
     }
