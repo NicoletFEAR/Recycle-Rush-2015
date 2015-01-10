@@ -1,9 +1,11 @@
 package com.nicoletfear.Robot2015;
 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
+import com.nicoletfear.Robot2015.xbox.Buttons;
 
 import edu.wpi.first.wpilibj.Joystick;
 /**
@@ -11,7 +13,8 @@ import edu.wpi.first.wpilibj.Joystick;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public static final Joystick driveStick = new Joystick(0);
+	public static final Joystick driveStick = new Joystick(Subsystems.rioCheck.getPortNumber(0));
+	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -41,6 +44,7 @@ public class OI {
 	static
 	{
 		SmartDashboard.putData(Subsystems.driveTrain);
+		startButtonOnDrive.cancelWhenPressed(Robot.checkControllers);
 	}
 }
 

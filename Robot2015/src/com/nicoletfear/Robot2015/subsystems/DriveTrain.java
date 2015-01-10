@@ -1,5 +1,6 @@
 package com.nicoletfear.Robot2015.subsystems;
 
+import com.nicoletfear.Robot2015.Subsystems;
 import com.nicoletfear.Robot2015.commands.Drive;
 
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -12,10 +13,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
  *
  */
 public class DriveTrain extends Subsystem {
-    SpeedController frontRight = new Talon(0);
-    SpeedController frontLeft = new Talon(1);
-    SpeedController backRight = new Talon(2);
-    SpeedController backLeft = new Talon(3);
+    SpeedController frontRight = new Talon(Subsystems.rioCheck.getPortNumber(0));
+    SpeedController frontLeft = new Talon(Subsystems.rioCheck.getPortNumber(1));
+    SpeedController backRight = new Talon(Subsystems.rioCheck.getPortNumber(2));
+    SpeedController backLeft = new Talon(Subsystems.rioCheck.getPortNumber(3));
     RobotDrive drive;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
