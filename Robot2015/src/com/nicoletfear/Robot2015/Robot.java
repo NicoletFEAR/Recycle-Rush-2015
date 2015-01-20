@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+<<<<<<< HEAD
+=======
+import com.nicoletfear.Robot2015.commands.CheckControllers;
+>>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
 import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
 
@@ -19,19 +23,24 @@ import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 	
+<<<<<<< HEAD
 	Compressor compressor;
 	Solenoid solenoid1, solenoid2;
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
+=======
+>>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
     Command autonomousCommand;
+    public static CheckControllers checkControllers;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+<<<<<<< HEAD
 		oi = new OI();
 		solenoid1 = new Solenoid(0, 1);
 		solenoid2 = new Solenoid(2, 3);
@@ -39,8 +48,12 @@ public class Robot extends IterativeRobot {
 		solenoid2.set(true);
 		compressor = new Compressor();
         compressor.start();
+=======
+>>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
+        checkControllers = new CheckControllers();
+        checkControllers.start();
     }
 	
 	public void disabledPeriodic() {
