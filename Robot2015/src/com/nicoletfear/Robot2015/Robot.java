@@ -1,10 +1,12 @@
 
 package com.nicoletfear.Robot2015;
-
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
 import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
 
@@ -16,6 +18,9 @@ import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	
+	Compressor compressor;
+	Solenoid solenoid1, solenoid2;
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
@@ -28,6 +33,12 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		solenoid1 = new Solenoid(0, 1);
+		solenoid2 = new Solenoid(2, 3);
+		solenoid1.set(true);
+		solenoid2.set(true);
+		compressor = new Compressor();
+        compressor.start();
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
     }
