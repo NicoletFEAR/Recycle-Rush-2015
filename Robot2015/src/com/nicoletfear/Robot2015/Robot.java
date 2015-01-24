@@ -3,14 +3,13 @@ package com.nicoletfear.Robot2015;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.CANTalon;
 
-<<<<<<< HEAD
-=======
 import com.nicoletfear.Robot2015.commands.CheckControllers;
->>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
 import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
 
@@ -23,15 +22,16 @@ import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 	
-<<<<<<< HEAD
+
 	Compressor compressor;
 	Solenoid solenoid1, solenoid2;
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	
+	CANTalon talonOne = new CANTalon(1);
+	CANTalon talonTwo = new CANTalon(2);
 
-=======
->>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
     Command autonomousCommand;
     public static CheckControllers checkControllers;
 
@@ -40,16 +40,13 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-<<<<<<< HEAD
+    	
 		oi = new OI();
 		solenoid1 = new Solenoid(0, 1);
 		solenoid2 = new Solenoid(2, 3);
-		solenoid1.set(true);
-		solenoid2.set(true);
 		compressor = new Compressor();
         compressor.start();
-=======
->>>>>>> 19de7475401b7ba815ce9e6edbca6b0ec291d641
+
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
         checkControllers = new CheckControllers();
