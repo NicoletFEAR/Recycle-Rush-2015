@@ -31,7 +31,11 @@ public class Robot extends IterativeRobot {
 	
 	CANTalon talonOne = new CANTalon(1);
 	CANTalon talonTwo = new CANTalon(2);
-
+	CANTalon talonThree = new CANTalon(3);
+	CANTalon TalonFour = new CANTalon(4);
+	
+	
+	
     Command autonomousCommand;
     public static CheckControllers checkControllers;
 
