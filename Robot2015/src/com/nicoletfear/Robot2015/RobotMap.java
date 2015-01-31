@@ -14,7 +14,7 @@ import java.util.Vector;
  */
 public class RobotMap {
 	
-
+// Test comment - remove later
 	
     //public static SpeedController dogMotor;
     public static SpeedController dogMotor = new CANTalon(Subsystems.rioCheck.getPortNumber(12));
