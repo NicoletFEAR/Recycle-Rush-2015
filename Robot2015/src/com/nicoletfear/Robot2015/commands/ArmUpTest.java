@@ -18,18 +18,18 @@ public class ArmUpTest extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	if(RobotMap.dogLimitSwitchTop.get()){
-    		Robot.dog.upMotorTest();
+    		RobotMap.dogMotor.set(0.25);
     	}else{
-    		Robot.dog.stopMotorTest();
+    		RobotMap.dogMotor.set(0);
     	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(RobotMap.dogLimitSwitchTop.get()){
-    		Robot.dog.upMotorTest();
+    		RobotMap.dogMotor.set(0.25);
     	}else{
-    		Robot.dog.stopMotorTest();
+    		RobotMap.dogMotor.set(0);
     	}
     }
 
