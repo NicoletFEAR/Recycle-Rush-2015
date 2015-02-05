@@ -47,6 +47,12 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(leftValue, rightValue, true);
 	}
 	
+	public void autonomousDrive(double x){
+		frontRight.set(-x);
+		frontLeft.set(x);
+		backRight.set(-x);
+		backLeft.set(x);
+	}
 }
 		
 
