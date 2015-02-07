@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
 
-import com.nicoletfear.Robot2015.commands.ArmUpTest;
+import com.nicoletfear.Robot2015.commands.ArmUp;
 import com.nicoletfear.Robot2015.commands.CheckControllers;
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
 import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
@@ -64,7 +64,7 @@ public class Robot extends IterativeRobot {
         checkControllers = new CheckControllers();
         checkControllers.start();
         
-        dog.startMotorTest();
+       // dog.startMotorTest();
     }
 	
 	public void disabledPeriodic() {

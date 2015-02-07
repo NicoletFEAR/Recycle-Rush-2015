@@ -20,11 +20,13 @@ public class RobotMap {
     //public static SpeedController dogMotor;
     
 	public static DigitalInput dogLimitSwitchTop;
-	
+	public static DigitalInput dogLimitSwitchBottom;
     
     public static void init() {
     	dogLimitSwitchTop = new DigitalInput(5);
     	LiveWindow.addSensor("dog", "LimitSwitchTop", dogLimitSwitchTop);
+    	dogLimitSwitchBottom = new DigitalInput(4);
+    	LiveWindow.addSensor("dog", "LimitSwitchBottom", dogLimitSwitchBottom);
                
     }
        
