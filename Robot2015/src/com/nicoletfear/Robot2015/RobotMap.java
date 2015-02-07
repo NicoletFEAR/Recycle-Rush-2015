@@ -1,5 +1,11 @@
 package com.nicoletfear.Robot2015;
 
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.CANTalon;
+
+import java.util.Vector;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -7,6 +13,23 @@ package com.nicoletfear.Robot2015;
  * floating around.
  */
 public class RobotMap {
+	
+// Test comment - remove later
+	public static int TalonPortDog = 12;
+	public static int TalonIDDog = 12;
+    //public static SpeedController dogMotor;
+    
+	public static DigitalInput dogLimitSwitchTop;
+	public static DigitalInput dogLimitSwitchBottom;
+    
+    public static void init() {
+    	dogLimitSwitchTop = new DigitalInput(5);
+    	LiveWindow.addSensor("dog", "LimitSwitchTop", dogLimitSwitchTop);
+    	dogLimitSwitchBottom = new DigitalInput(4);
+    	LiveWindow.addSensor("dog", "LimitSwitchBottom", dogLimitSwitchBottom);
+               
+    }
+       
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
