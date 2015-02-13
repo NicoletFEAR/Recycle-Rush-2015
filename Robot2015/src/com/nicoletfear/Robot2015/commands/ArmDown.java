@@ -9,41 +9,53 @@ import com.nicoletfear.Robot2015.RobotMap;
 /**
  *
  */
-public class ArmUpTest extends Command {
+public class ArmDown extends Command {
+	
+	private boolean finished = false;
 
-    public ArmUpTest() {
+    public ArmDown() {
     	requires(Robot.dog);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(RobotMap.dogLimitSwitchTop.get()){
-    		RobotMap.dogMotor.set(0.25);
+    	finished = false;
+    	if(Robot.dog.downLimitPressed() == true){
+    		finished = true;
     	}else{
-    		RobotMap.dogMotor.set(0);
+    		Robot.dog.downMotorTest();
     	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(RobotMap.dogLimitSwitchTop.get()){
-    		RobotMap.dogMotor.set(0.25);
-    	}else{
-    		RobotMap.dogMotor.set(0);
+    	if(!finished){
+    		if(Robot.dog.downLimitPressed() == false)
+        	{
+        		Robot.dog.downMotorTest();
+        	}
+        	else
+        	{
+        		Robot.dog.stopMotorTest();
+        		finished = true;
+        	}
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-      return false;
+      return finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.dog.stopMotorTest();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	finished = true;
+    	end();
     }
 }

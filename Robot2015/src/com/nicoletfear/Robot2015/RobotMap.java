@@ -14,23 +14,20 @@ import java.util.Vector;
  */
 public class RobotMap {
 	
-	
+// Test comment - remove later
+	public static int TalonPortDog = 12;
+	public static int TalonIDDog = 12;
     //public static SpeedController dogMotor;
-    public static SpeedController dogMotor = new CANTalon(Subsystems.rioCheck.getPortNumber(12));
+    
 	public static DigitalInput dogLimitSwitchTop;
-	
+	public static DigitalInput dogLimitSwitchBottom;
     
     public static void init() {
     	dogLimitSwitchTop = new DigitalInput(5);
-    	CANTalon TalonTwelve = new CANTalon(12);
-    	
-    	
-        LiveWindow.addSensor("dog", "LimitSwitchTop", dogLimitSwitchTop);
-         
-        
-        
-       // dogMotor = new Talon(0);
-        //LiveWindow.addActuator("dog", "Motor", (Talon) dogMotor);
+    	LiveWindow.addSensor("dog", "LimitSwitchTop", dogLimitSwitchTop);
+    	dogLimitSwitchBottom = new DigitalInput(4);
+    	LiveWindow.addSensor("dog", "LimitSwitchBottom", dogLimitSwitchBottom);
+               
     }
        
     // For example to map the left and right motors, you could define the
