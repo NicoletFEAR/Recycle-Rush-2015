@@ -1,7 +1,12 @@
 
 package com.nicoletfear.Robot2015;
+<<<<<<< HEAD
 import com.nicoletfear.Robot2015.RobotMap;
 import com.nicoletfear.Robot2015.subsystems.dog;
+=======
+
+import com.nicoletfear.Robot2015.commands.Forward;
+>>>>>>> ffd297faf005f2da87dea77e94a1218eaf42bf92
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
@@ -38,7 +43,7 @@ public class Robot extends IterativeRobot {
 	CANTalon talonThree = new CANTalon(3);
 	CANTalon TalonFour = new CANTalon(4);
 	
-	
+	Command forward;
 	
     Command autonomousCommand;
     public static CheckControllers checkControllers;
@@ -59,6 +64,7 @@ public class Robot extends IterativeRobot {
 		compressor = new Compressor();
         compressor.start();
 
+        forward = new Forward(6);
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
         checkControllers = new CheckControllers();
@@ -69,16 +75,16 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 	}
 
-    public void autonomousInit() {
+	public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        if (forward != null) forward.start();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+    	Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
