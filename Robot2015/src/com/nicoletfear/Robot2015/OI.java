@@ -25,11 +25,15 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class OI {
 	public static final Joystick driveStick = new Joystick(Subsystems.rioCheck.getPortNumber(0));
-	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
+	public static final Joystick gameMech = new Joystick(Subsystems.rioCheck.getPortNumber(1));
 	
-	public static Button yButton = new JoystickButton(driveStick , Buttons.Y);
-	public static Button aButton = new JoystickButton(driveStick , Buttons.A);
-	public static Button bButton = new JoystickButton(driveStick , Buttons.B);
+	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
+	public static final Button aButtonOnDrive = new JoystickButton(driveStick, Buttons.A);
+	public static final Button bButtonOnDrive = new JoystickButton(driveStick, Buttons.B);
+	
+	public static Button yButton = new JoystickButton(gameMech , Buttons.Y);
+	public static Button aButton = new JoystickButton(gameMech , Buttons.A);
+	public static Button bButton = new JoystickButton(gameMech , Buttons.B);
 	
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

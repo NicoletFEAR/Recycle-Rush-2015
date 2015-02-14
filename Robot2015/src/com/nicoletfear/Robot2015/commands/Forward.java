@@ -12,13 +12,15 @@
 package com.nicoletfear.Robot2015.commands;
 
 import com.nicoletfear.Robot2015.Subsystems;
-
+import com.nicoletfear.Robot2015.commands.Backward;
 import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
 public class  Forward extends Command {
 
+	Command backward;
+	
     public Forward(double timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -47,7 +49,9 @@ public class  Forward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Subsystems.driveTrain.autonomousDrive(0);
+    	//Subsystems.driveTrain.autonomousDrive(0);
+    	backward = new Backward(2.5);
+    	if (backward != null) backward.start();
     }
 
     // Called when another command which requires one or more of the same

@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Drive extends Command {
+	
+	private double lastLeft = 0, lastRight = 0;
+	private double ACCEL_WEIGHT = 0.08;
 
     public Drive() {
     	requires(Subsystems.driveTrain);
@@ -24,7 +27,22 @@ public class Drive extends Command {
     protected void execute() {
     	double leftStick = OI.driveStick.getRawAxis(Axes.leftControlStickY);
     	double rightstick = OI.driveStick.getRawAxis(Axes.rightControlStickY);
-    	Subsystems.driveTrain.driveWheelsTank(leftStick, rightstick);
+    	double newLeft = calculateNewVelocity(leftStick, lastLeft);
+    	double newRight = calculateNewVelocity(rightstick, lastRight);
+    	Subsystems.driveTrain.driveWheelsTank(newLeft * 1.07, newRight); //left speed controllers are more powerful than the right
+    	lastLeft = newLeft;
+    	lastRight = newRight;
+    }
+    
+    
+    private double calculateNewVelocity(double current, double last){
+    	if(OI.aButtonOnDrive.get()){
+    		return -0.5;
+    	}else if(OI.bButtonOnDrive.get()){
+    		return last * 0.01;
+    	}else{
+    		return last * (1 - ACCEL_WEIGHT) + current * ACCEL_WEIGHT;	
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

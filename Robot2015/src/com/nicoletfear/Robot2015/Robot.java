@@ -3,6 +3,7 @@ package com.nicoletfear.Robot2015;
 import com.nicoletfear.Robot2015.RobotMap;
 import com.nicoletfear.Robot2015.commands.Forward;
 import com.nicoletfear.Robot2015.subsystems.dog;
+import com.nicoletfear.Robot2015.commands.Backward;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 
 import com.nicoletfear.Robot2015.commands.ArmUp;
 import com.nicoletfear.Robot2015.commands.CheckControllers;
@@ -34,17 +36,17 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	
-	CANTalon talonOne = new CANTalon(1);
-	CANTalon talonTwo = new CANTalon(2);
-	CANTalon talonThree = new CANTalon(3);
-	CANTalon TalonFour = new CANTalon(4);
 	
 	Command forward;
+	Command backward;
 	
     Command autonomousCommand;
     public static CheckControllers checkControllers;
     public static dog dog;
+    
+    
 
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -61,6 +63,8 @@ public class Robot extends IterativeRobot {
         compressor.start();
 
         forward = new Forward(6);
+       // backward = new Backward(0.1);
+        
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
         checkControllers = new CheckControllers();
@@ -70,12 +74,13 @@ public class Robot extends IterativeRobot {
     }
 	
 	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
+		Scheduler.getInstance().run	();
 	}
 
 	public void autonomousInit() {
         // schedule the autonomous command (example)
         if (forward != null) forward.start();
+        
     }
 
     /**
