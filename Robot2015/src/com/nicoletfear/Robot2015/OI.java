@@ -24,8 +24,11 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 
 public class OI {
-	public static final Joystick driveStick = new Joystick(Subsystems.rioCheck.getPortNumber(0));
-	public static final Joystick gameMech = new Joystick(Subsystems.rioCheck.getPortNumber(1));
+	//public static final Joystick driveStick = new Joystick(Subsystems.rioCheck.getPortNumber(0)); 
+	public static final Joystick driveStick = new Joystick(Subsystems.rioCheck.getPortNumber(0)); 
+	public static final Joystick driveStickTwo = new Joystick(Subsystems.rioCheck.getPortNumber(1)); 
+	
+	public static final Joystick gameMech = new Joystick(Subsystems.rioCheck.getPortNumber(2));
 	
 	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
 	public static final Button aButtonOnDrive = new JoystickButton(driveStick, Buttons.A);

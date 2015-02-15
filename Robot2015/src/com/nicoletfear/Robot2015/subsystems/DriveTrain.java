@@ -6,7 +6,7 @@ import com.nicoletfear.Robot2015.Robot;
 
 
 
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -26,6 +26,12 @@ public class DriveTrain extends Subsystem {
 	CANTalon frontleft = new CANTalon(3); //frontleft
 	CANTalon backleft = new CANTalon(0); //backleft
 	
+	/*
+	CANTalon backright = new CANTalon(0); //backright
+	CANTalon frontright = new CANTalon(1); //frontright
+	CANTalon frontleft = new CANTalon(14); //frontleft
+	CANTalon backleft = new CANTalon(15); //backleft
+	*/
     
     RobotDrive drive;
     // Put methods for controlling this subsystem
@@ -40,16 +46,20 @@ public class DriveTrain extends Subsystem {
 		drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		drive.setInvertedMotor(MotorType.kRearLeft, true);		//Inverts the left wheels of the left motors
 	 
-		//frontright.reverseSensor(true);
-		//frontright.reverseOutput(true);
+		frontright.reverseSensor(true);
+		frontright.reverseOutput(true);
+		frontleft.reverseSensor(true);
+		frontleft.reverseOutput(true);
 		
 	    backright.changeControlMode(CANTalon.ControlMode.Follower);
 	    backright.set(frontright.getDeviceID());
 	    backleft.changeControlMode(CANTalon.ControlMode.Follower);
 	    backleft.set(frontleft.getDeviceID());
 	   
-	    //frontright.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+	    frontright.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 	   // frontleft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+	    
+	    
 	
 	}
 	

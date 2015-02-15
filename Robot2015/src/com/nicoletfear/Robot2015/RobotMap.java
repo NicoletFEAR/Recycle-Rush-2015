@@ -15,8 +15,15 @@ import java.util.Vector;
 public class RobotMap {
 	
 // Test comment - remove later
-	public static int TalonPortDog = 12;
-	public static int TalonIDDog = 12;
+	
+	//public static int TalonPortDog = 12;
+	//public static int TalonIDDog = 12;
+	//remove above
+	public static int TalonPortDogRight = 2;
+	public static int TalonIDDogRight = 2;
+	public static int TalonPortDogLeft = 13;
+	public static int TalonIDDogLeft = 13;
+	
     //public static SpeedController dogMotor;
     
 	public static DigitalInput dogLimitSwitchTop;
