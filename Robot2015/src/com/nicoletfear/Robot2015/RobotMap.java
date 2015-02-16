@@ -26,15 +26,21 @@ public class RobotMap {
 	
     //public static SpeedController dogMotor;
     
-	public static DigitalInput dogLimitSwitchTop;
-	public static DigitalInput dogLimitSwitchBottom;
+	public static DigitalInput dogLimitSwitchTopRight;
+	public static DigitalInput dogLimitSwitchBottomRight;
+	public static DigitalInput dogLimitSwitchTopLeft;
+	public static DigitalInput dogLimitSwitchBottomLeft;
     
     public static void init() {
-    	dogLimitSwitchTop = new DigitalInput(5);
-    	LiveWindow.addSensor("dog", "LimitSwitchTop", dogLimitSwitchTop);
-    	dogLimitSwitchBottom = new DigitalInput(4);
-    	LiveWindow.addSensor("dog", "LimitSwitchBottom", dogLimitSwitchBottom);
-               
+    	dogLimitSwitchTopRight = new DigitalInput(5);
+    	LiveWindow.addSensor("dog", "LimitSwitchTopRight", dogLimitSwitchTopRight);
+    	dogLimitSwitchBottomRight = new DigitalInput(4);
+    	LiveWindow.addSensor("dog", "LimitSwitchBottomRight", dogLimitSwitchBottomRight);
+    	
+    	dogLimitSwitchTopLeft = new DigitalInput(6);
+    	LiveWindow.addSensor("dog", "LimitSwitchTopLeft", dogLimitSwitchTopLeft);
+    	dogLimitSwitchBottomLeft = new DigitalInput(7);
+    	LiveWindow.addSensor("dog", "LimitSwitchBottomLeft", dogLimitSwitchBottomLeft);       
     }
        
     // For example to map the left and right motors, you could define the

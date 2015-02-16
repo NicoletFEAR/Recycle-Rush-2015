@@ -4,6 +4,8 @@ import com.nicoletfear.Robot2015.commands.ArmStop;
 import com.nicoletfear.Robot2015.commands.ArmUp;
 //import com.nicoletfear.Robot2015.commands.AutonomousCommand;
 
+import com.nicoletfear.Robot2015.commands.ArmUp;
+import com.nicoletfear.Robot2015.commands.Drive;
 import  com.nicoletfear.Robot2015.RobotMap;
 import  com.nicoletfear.Robot2015.commands.ArmUp;
 import  com.nicoletfear.Robot2015.commands.ArmDown;
@@ -78,7 +80,7 @@ public class OI {
 	    
         // SmartDashboard Buttons
         
-
+		
         SmartDashboard.putData("ArmUp", new ArmUp());
         
        // RobotMap.dogMotor.set(0.25);

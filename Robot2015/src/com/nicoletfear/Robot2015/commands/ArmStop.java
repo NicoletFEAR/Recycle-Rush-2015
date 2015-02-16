@@ -6,19 +6,22 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ArmStop extends Command{
 	boolean finished = false;
+	
 	public ArmStop(){
 		requires(Robot.dog);
 	}
 
 	@Override
 	protected void initialize() {
-		Robot.dog.stopMotorTest();
+		Robot.dog.stopMotorTestRight();
+		Robot.dog.stopMotorTestLeft();
 		finished = true;
 	}
 	
 	@Override
 	protected void execute() {
-		Robot.dog.stopMotorTest();
+		Robot.dog.stopMotorTestRight();
+		Robot.dog.stopMotorTestLeft();
 		finished = true;
 	}
 
@@ -29,7 +32,8 @@ public class ArmStop extends Command{
 	
 	@Override
 	protected void end() {
-		Robot.dog.stopMotorTest();
+		Robot.dog.stopMotorTestRight();
+		Robot.dog.stopMotorTestLeft();
 	}
 
 	@Override

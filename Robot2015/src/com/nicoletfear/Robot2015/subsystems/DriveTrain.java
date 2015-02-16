@@ -6,6 +6,7 @@ import com.nicoletfear.Robot2015.Robot;
 
 
 
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -20,18 +21,18 @@ import edu.wpi.first.wpilibj.CANTalon.ControlMode;
  *
  */
 public class DriveTrain extends Subsystem {
-	
+	/*
     CANTalon backright = new CANTalon(1); //backright
 	CANTalon frontright = new CANTalon(2); //frontright
 	CANTalon frontleft = new CANTalon(3); //frontleft
 	CANTalon backleft = new CANTalon(0); //backleft
+	*/
 	
-	/*
 	CANTalon backright = new CANTalon(0); //backright
 	CANTalon frontright = new CANTalon(1); //frontright
 	CANTalon frontleft = new CANTalon(14); //frontleft
 	CANTalon backleft = new CANTalon(15); //backleft
-	*/
+	
     
     RobotDrive drive;
     // Put methods for controlling this subsystem
@@ -57,9 +58,22 @@ public class DriveTrain extends Subsystem {
 	    backleft.set(frontleft.getDeviceID());
 	   
 	    frontright.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-	   // frontleft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+	    frontleft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 	    
-	    
+	    SmartDashboard.putDouble("frontRightP", frontright.getP());//putnumber instead of putDouble
+		SmartDashboard.putDouble("backRightP", backright.getP());
+		SmartDashboard.putDouble("frontLeftP", frontleft.getP());
+		SmartDashboard.putDouble("backLeftP", backleft.getP());
+		
+		SmartDashboard.putDouble("frontRightI", frontright.getI());
+		SmartDashboard.putDouble("backRightI", backright.getI());
+		SmartDashboard.putDouble("frontLeftI", frontleft.getI());
+		SmartDashboard.putDouble("backLeftI", backleft.getI());
+		
+		SmartDashboard.putDouble("frontRightD", frontright.getD());
+		SmartDashboard.putDouble("backRightD", backright.getD());
+		SmartDashboard.putDouble("frontLeftD", frontleft.getD());
+		SmartDashboard.putDouble("backLeftD", backleft.getD());
 	
 	}
 	

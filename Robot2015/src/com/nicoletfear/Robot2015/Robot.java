@@ -3,7 +3,8 @@ package com.nicoletfear.Robot2015;
 import com.nicoletfear.Robot2015.RobotMap;
 import com.nicoletfear.Robot2015.commands.Forward;
 import com.nicoletfear.Robot2015.subsystems.dog;
-import com.nicoletfear.Robot2015.commands.Backward;
+//import com.nicoletfear.Robot2015.commands.Backward;
+
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
@@ -12,11 +13,13 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 
 import com.nicoletfear.Robot2015.commands.ArmUp;
 import com.nicoletfear.Robot2015.commands.CheckControllers;
+import com.nicoletfear.Robot2015.commands.Drive;
 import com.nicoletfear.Robot2015.commands.ExampleCommand;
 import com.nicoletfear.Robot2015.subsystems.ExampleSubsystem;
 
@@ -111,6 +114,13 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	SmartDashboard.putDouble("Left Setpoint", Drive.getNewLeft());
+		SmartDashboard.putDouble("Left Position", Drive.getLeftStick());
+		SmartDashboard.putDouble("Left Speed", Drive.getLastLeft());
+		
+		SmartDashboard.putDouble("Right Setpoint", Drive.getNewRight());
+		SmartDashboard.putDouble("Right Position", Drive.getRightStick());
+		SmartDashboard.putDouble("Right Speed", Drive.getLastRight());
         Scheduler.getInstance().run();
     }
     
