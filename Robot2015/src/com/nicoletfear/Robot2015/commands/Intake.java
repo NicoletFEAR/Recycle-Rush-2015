@@ -1,5 +1,6 @@
 package com.nicoletfear.Robot2015.commands;
 
+import com.nicoletfear.Robot2015.OI;
 import com.nicoletfear.Robot2015.Subsystems;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -7,31 +8,34 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CheckControllers extends Command {
+public class Intake extends Command {
 
-    public CheckControllers() {
+    public Intake() {
+    	requires(Subsystems.toteEater);
         // Use requires() here to declare subsystem dependencies
-        requires(Subsystems.controllerChecker);
-        setRunWhenDisabled(true);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Subsystems.controllerChecker.showWarning();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(OI.rbButton.get()){
+    		Subsystems.toteEater.intake();
+    	}else{
+    		Subsystems.toteEater.stopEater();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
-
+    
     // Called once after isFinished returns true
     protected void end() {
-    	Subsystems.controllerChecker.clearWarning();
     }
 
     // Called when another command which requires one or more of the same

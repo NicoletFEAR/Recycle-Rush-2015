@@ -1,6 +1,12 @@
 package com.nicoletfear.Robot2015.xbox;
 
-public class Buttons {
+public class Buttons 
+{
+	
+	//Logtech joystick
+	public static final int Trigger = 1;
+	
+	//xbox controller
 	public static final int A = 1;
 	public static final int B = 2;
 	public static final int X = 3;

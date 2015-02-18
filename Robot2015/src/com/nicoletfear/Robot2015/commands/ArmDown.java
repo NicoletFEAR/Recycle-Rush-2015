@@ -1,87 +1,75 @@
 package com.nicoletfear.Robot2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import com.nicoletfear.Robot2015.Robot;
-import com.nicoletfear.Robot2015.RobotMap;
 
-/**
- *
- */
-public class ArmDown extends Command {
+public class ArmDown extends Command 
+{
 	
 	private boolean finishedRight = false;
 	private boolean finishedLeft = false;
 
-    public ArmDown() {
-    	requires(Robot.dog);
+    public ArmDown() 
+    {
+    	requires(Robot.Dog);
     }
 
     // Called just before this Command runs the first time
-    protected void initialize() {
+    protected void initialize() 
+    {
     	
     	finishedRight = false;
     	finishedLeft = false;
     	
-    	if(!Robot.dog.downLimitPressedLeft()){
-    		Robot.dog.downMotorTestLeft();
+    	if(!Robot.Dog.downLimitPressedLeft())
+    	{
+    		Robot.Dog.downMotorTestLeft();
     	}
     	
-    	if(!Robot.dog.downLimitPressedRight()){
-    		Robot.dog.downMotorTestRight();
+    	if(!Robot.Dog.downLimitPressedRight())
+    	{
+    		Robot.Dog.downMotorTestRight();
     	}
-    	/*
-    	finishedRight = false;
-    	finishedLeft = false;
-    	
-    	if(Robot.dog.downLimitPressedRight() == true){
-    		finishedRight = true;
-    	}
-    	
-    	if(Robot.dog.downLimitPressedLeft() == true){
-    		finishedLeft = true;
-    	}
-    	*/
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	if(Robot.dog.downLimitPressedRight()){
-    		Robot.dog.stopMotorTestRight();
+    protected void execute() 
+    {
+    	if(Robot.Dog.downLimitPressedRight())
+    	{
+    		Robot.Dog.stopMotorTestRight();
+    		finishedRight = true;
     	}
     	
-    	if(Robot.dog.downLimitPressedLeft()){
-    		Robot.dog.stopMotorTestLeft();
+    	if(Robot.Dog.downLimitPressedLeft())
+    	{
+    		Robot.Dog.stopMotorTestLeft();
+    		finishedLeft = true;
     	}
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if(Robot.dog.downLimitPressedRight() == true){
-    		finishedRight = true;
-    	}
-    	
-    	if(Robot.dog.downLimitPressedLeft() == true){
-    		finishedLeft = true;
-    	}
-    	
-    	if(timeSinceInitialized() > 10){
+    // Will return true when this Command no longer needs to run execute()
+    protected boolean isFinished() 
+    {
+    	if(timeSinceInitialized() > 5)
+    	{
     		finishedRight = true;
     		finishedLeft = true;
     	}
-    	return (finishedLeft && finishedRight);
+    	return finishedLeft && finishedRight;
     }
 
     // Called once after isFinished returns true
-    protected void end() {
-    	Robot.dog.stopMotorTestRight();
-    	Robot.dog.stopMotorTestLeft();
+    protected void end() 
+    {
+    	Robot.Dog.stopMotorTestRight();
+    	Robot.Dog.stopMotorTestLeft();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    protected void interrupted() {
+    protected void interrupted() 
+    {
     	finishedRight = true;
     	finishedLeft = true;
     	end();

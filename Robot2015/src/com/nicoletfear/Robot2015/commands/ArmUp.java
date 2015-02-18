@@ -1,72 +1,58 @@
 package com.nicoletfear.Robot2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import com.nicoletfear.Robot2015.Robot;
-import com.nicoletfear.Robot2015.RobotMap;
 
-/**
- *
- */
-public class ArmUp extends Command {
+public class ArmUp extends Command 
+{
 	
 	private boolean finishedRight = false;
 	private boolean finishedLeft = false;
 
-    public ArmUp() {
-    	requires(Robot.dog);
+    public ArmUp() 
+    {
+    	requires(Robot.Dog);
     }
 
     // Called just before this Command runs the first time
-    protected void initialize() {
+    protected void initialize() 
+    {
     	
-    	finishedLeft = false;
-    	finishedRight = false;
-    	
-    	if(!Robot.dog.upLimitPressedLeft()){
-    		Robot.dog.upMotorTestLeft();
-    	}
-    	
-    	if(!Robot.dog.upLimitPressedRight()){
-    		Robot.dog.upMotorTestRight();
-    	}
-    	/*
     	finishedRight = false;
     	finishedLeft = false;
     	
-    	if(Robot.dog.upLimitPressedRight() == true){
-    		finishedRight = true;
+    	if(!Robot.Dog.upLimitPressedLeft())
+    	{
+    		Robot.Dog.upMotorTestLeft();
     	}
     	
-    	if(Robot.dog.upLimitPressedLeft() == true){
-    		finishedLeft = true;
+    	if(!Robot.Dog.upLimitPressedRight())
+    	{
+    		Robot.Dog.upMotorTestRight();
     	}
-    	*/
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	if(Robot.dog.upLimitPressedRight()){
-    		Robot.dog.stopMotorTestRight();
+    protected void execute() 
+    {
+    	if(Robot.Dog.upLimitPressedRight())
+    	{
+    		Robot.Dog.stopMotorTestRight();
+    		finishedRight = true;
     	}
     	
-    	if(Robot.dog.upLimitPressedLeft()){
-    		Robot.dog.stopMotorTestLeft();
+    	if(Robot.Dog.upLimitPressedLeft())
+    	{
+    		Robot.Dog.stopMotorTestLeft();
+    		finishedLeft = true;
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if(Robot.dog.upLimitPressedRight() == true){
-    		finishedRight = true;
-    	}
-    	
-    	if(Robot.dog.upLimitPressedLeft() == true){
-    		finishedLeft = true;
-    	}
-    	
-    	if(timeSinceInitialized() > 10){
+    protected boolean isFinished() 
+    {
+    	if(timeSinceInitialized() > 5)
+    	{
     		finishedRight = true;
     		finishedLeft = true;
     	}
@@ -74,14 +60,16 @@ public class ArmUp extends Command {
     }
 
     // Called once after isFinished returns true
-    protected void end() {
-    	Robot.dog.stopMotorTestRight();
-    	Robot.dog.stopMotorTestLeft();
+    protected void end() 
+    {
+    	Robot.Dog.stopMotorTestRight();
+    	Robot.Dog.stopMotorTestLeft();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    protected void interrupted() {
+    protected void interrupted() 
+    {
     	finishedRight = true;
     	finishedLeft = true;
     	end();
