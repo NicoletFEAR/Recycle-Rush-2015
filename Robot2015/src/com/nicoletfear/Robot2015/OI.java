@@ -28,7 +28,7 @@ public class OI
 	public static final Joystick gameMech = new Joystick(2);
 	
 	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
-	public static final Button aButtonOnDrive = new JoystickButton(driveStick, Buttons.Trigger);
+	public static final Button aButtonOnDrive = new JoystickButton(driveStickTwo, Buttons.Trigger);
 	public static final Button bButtonOnDrive = new JoystickButton(driveStick, Buttons.B);
 	
 	public static Button yButton = new JoystickButton(gameMech , Buttons.Y);
