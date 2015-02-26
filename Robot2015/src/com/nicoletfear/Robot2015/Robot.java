@@ -8,6 +8,9 @@ import com.nicoletfear.Robot2015.commands.Drive;
 
 
 
+import com.nicoletfear.Robot2015.commands.ReverseBackward;
+import com.nicoletfear.Robot2015.commands.ReverseForward;
+
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -37,6 +40,8 @@ public class Robot extends IterativeRobot
 	
 	Command forward;
 	Command backward;
+	Command reversebackward;
+	Command reverseforward;
 	
     Command autonomousCommand;
     
@@ -59,7 +64,7 @@ public class Robot extends IterativeRobot
         compressor.start();
 
         forward = new Forward(6);
-        
+        //reversebackward = new ReverseBackward(6);
     }
 	
 	public void disabledPeriodic() 
@@ -70,6 +75,8 @@ public class Robot extends IterativeRobot
 	public void autonomousInit() 
 	{
         if (forward != null) forward.start();
+        
+       // if (reversebackward != null) reversebackward.start();
         
     }
 

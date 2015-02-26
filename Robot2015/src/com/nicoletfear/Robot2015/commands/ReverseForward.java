@@ -4,12 +4,12 @@ import com.nicoletfear.Robot2015.Subsystems;
 import com.nicoletfear.Robot2015.commands.Backward;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Forward extends Command 
+public class ReverseForward extends Command 
 {
 	
 	Command backward;
 	
-    public Forward(double timeout) 
+    public ReverseForward(double timeout) 
     {
     	super(timeout);
         requires(Subsystems.driveTrain);
@@ -21,7 +21,7 @@ public class Forward extends Command
 
     protected void execute() 
     {
-    	Subsystems.driveTrain.autonomousDrive(0.35);
+    	Subsystems.driveTrain.autonomousDrive(0.3);
     }
 
     protected boolean isFinished() 
@@ -32,8 +32,7 @@ public class Forward extends Command
     protected void end() 
     {
 
-    	backward = new Backward(2);
-    	if (backward != null) backward.start();
+    	Subsystems.driveTrain.autonomousDrive(0);
     }
 
     protected void interrupted() 

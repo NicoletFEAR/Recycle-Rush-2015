@@ -12,8 +12,9 @@ import edu.wpi.first.wpilibj.RobotDrive;
 
 public class DriveTrain extends Subsystem 
 {	
-	/*
+	
 	// Test robot ID's
+	/*
     CANTalon backright = new CANTalon(1); //backright
 	CANTalon frontright = new CANTalon(2); //frontright
 	CANTalon frontleft = new CANTalon(3); //frontleft
