@@ -1,19 +1,14 @@
 
 package com.nicoletfear.Robot2015;
 
-import com.nicoletfear.Robot2015.RobotMap;
-import com.nicoletfear.Robot2015.commands.Forward;
-import com.nicoletfear.Robot2015.subsystems.Dog;
+import com.nicoletfear.Robot2015.commands.Arms;
+import com.nicoletfear.Robot2015.commands.AutoForward;
 import com.nicoletfear.Robot2015.commands.Drive;
+import com.nicoletfear.Robot2015.subsystems.Dog;
 
-
-
-import com.nicoletfear.Robot2015.commands.ReverseBackward;
-import com.nicoletfear.Robot2015.commands.ReverseForward;
-
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -37,12 +32,6 @@ public class Robot extends IterativeRobot
 
 	public static OI oi;
 	
-	
-	Command forward;
-	Command backward;
-	Command reversebackward;
-	Command reverseforward;
-	
     Command autonomousCommand;
     
     public static Dog Dog;
@@ -56,15 +45,15 @@ public class Robot extends IterativeRobot
     	 RobotMap.init();
     	 
         Dog = new Dog();
-    	
+        
 		oi = new OI();
 		solenoid1 = new Solenoid(0, 1);
 		solenoid2 = new Solenoid(2, 3);
 		compressor = new Compressor();
         compressor.start();
 
-        forward = new Forward(6);
-        //reversebackward = new ReverseBackward(6);
+        autonomousCommand = new AutoForward();
+        new Arms();
     }
 	
 	public void disabledPeriodic() 
@@ -74,10 +63,7 @@ public class Robot extends IterativeRobot
 
 	public void autonomousInit() 
 	{
-        if (forward != null) forward.start();
-        
-       // if (reversebackward != null) reversebackward.start();
-        
+		if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**

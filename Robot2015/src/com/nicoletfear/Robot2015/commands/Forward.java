@@ -1,13 +1,12 @@
 package com.nicoletfear.Robot2015.commands;
 
 import com.nicoletfear.Robot2015.Subsystems;
-import com.nicoletfear.Robot2015.commands.Backward;
+
 import edu.wpi.first.wpilibj.command.Command;
 
+//Autonomous forward speed is about 2.33 feet per second
 public class Forward extends Command 
 {
-	
-	Command backward;
 	
     public Forward(double timeout) 
     {
@@ -17,6 +16,7 @@ public class Forward extends Command
 
     protected void initialize()
     {
+    	Subsystems.driveTrain.autonomousDrive(0.35);
     }
 
     protected void execute() 
@@ -31,9 +31,6 @@ public class Forward extends Command
 
     protected void end() 
     {
-
-    	backward = new Backward(2);
-    	if (backward != null) backward.start();
     }
 
     protected void interrupted() 

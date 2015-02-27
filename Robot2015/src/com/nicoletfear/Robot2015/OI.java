@@ -31,11 +31,14 @@ public class OI
 	public static final Button aButtonOnDrive = new JoystickButton(driveStickTwo, Buttons.Trigger);
 	public static final Button bButtonOnDrive = new JoystickButton(driveStick, Buttons.B);
 	
+	
 	public static Button yButton = new JoystickButton(gameMech , Buttons.Y);
 	public static Button aButton = new JoystickButton(gameMech , Buttons.A);
 	public static Button bButton = new JoystickButton(gameMech , Buttons.B);
 	public static Button rbButton = new JoystickButton(gameMech , Buttons.RightBump);
 	public static Button lbButton = new JoystickButton(gameMech , Buttons.LeftBump);
+	
+	
 	
 	static
 	{

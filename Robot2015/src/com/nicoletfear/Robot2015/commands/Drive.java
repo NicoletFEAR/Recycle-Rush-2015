@@ -12,8 +12,9 @@ public class Drive extends Command
 	private static double lastLeft = 0, lastRight = 0;
 	private static double newLeft, newRight;
 	private static double leftStick, rightstick;
-	private final double ACCEL_WEIGHT = 0.09;
-	private final double LEFT_POWER = 1.07, RIGHT_POWER = 1;
+	private final double ACCEL_WEIGHT = 0.05;
+	private final double LEFT_POWER = 1, RIGHT_POWER = 1;
+	
 
     public Drive() 
     {
@@ -34,7 +35,7 @@ public class Drive extends Command
     	newLeft = calculateNewVelocity(leftStick, lastLeft);
     	newRight = calculateNewVelocity(rightstick, lastRight);
     	
-    	Subsystems.driveTrain.driveWheelsTank(newLeft * LEFT_POWER, newRight * RIGHT_POWER); //left speed controllers are more powerful than the right
+    	Subsystems.driveTrain.driveWheelsTank(newLeft * LEFT_POWER, newRight * RIGHT_POWER);
     	
     	lastLeft = newLeft;
     	lastRight = newRight;

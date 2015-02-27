@@ -14,9 +14,7 @@ package com.nicoletfear.Robot2015.commands;
 import com.nicoletfear.Robot2015.Subsystems;
 
 import edu.wpi.first.wpilibj.command.Command;
-/**
- *
- */
+
 public class  ReverseBackward extends Command 
 {
 
@@ -29,14 +27,12 @@ public class  ReverseBackward extends Command
     // Called just before this Command runs the first time
    protected void initialize() 
     { 
+	   Subsystems.driveTrain.autonomousDrive(-0.35);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-    	
-    	
-    	Subsystems.driveTrain.autonomousDrive(-0.35);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,9 +44,6 @@ public class  ReverseBackward extends Command
     // Called once after isFinished returns true
     protected void end() 
     {
-    	ReverseForward reverseforward = new ReverseForward(2);
-    	if (reverseforward != null) reverseforward.start();
-    	
     }
 
     // Called when another command which requires one or more of the same

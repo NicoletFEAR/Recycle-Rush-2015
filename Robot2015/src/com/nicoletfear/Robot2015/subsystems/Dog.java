@@ -61,6 +61,16 @@ public class Dog extends Subsystem
     	dogMotorLeft.set(MAXGAMEMECH);
     }
     
+    public void MotorTestRightSpeed(double Velo)
+    {
+    	dogMotorRight.set(Velo);
+    }
+    
+    public void MotorTestLeftSpeed(double Velo)
+    {
+    	dogMotorLeft.set(-Velo);
+    }
+    
     public double getRightVelocity()
     {
     	return dogMotorRight.getEncVelocity();
