@@ -6,7 +6,7 @@ public class AutoForward extends CommandGroup {
 	
     public  AutoForward() {
     	//addSequential(new Forward(5.5));
-    	addSequential(new Forward(6));
+    	addSequential(new Forward(2));
     	//addSequential(new Backward(2));
     	addSequential(new AutoStop());
         

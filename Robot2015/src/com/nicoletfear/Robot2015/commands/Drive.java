@@ -12,7 +12,7 @@ public class Drive extends Command
 	private static double lastLeft = 0, lastRight = 0;
 	private static double newLeft, newRight;
 	private static double leftStick, rightstick;
-	private final double ACCEL_WEIGHT = 0.05;
+	private final double ACCEL_WEIGHT = 0.08;
 	private final double LEFT_POWER = 1, RIGHT_POWER = 1;
 	
 

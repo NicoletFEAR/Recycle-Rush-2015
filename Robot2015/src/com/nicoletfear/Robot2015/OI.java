@@ -29,7 +29,10 @@ public class OI
 	
 	public static final Button startButtonOnDrive = new JoystickButton(driveStick , Buttons.Start);
 	public static final Button aButtonOnDrive = new JoystickButton(driveStickTwo, Buttons.Trigger);
+	public static final Button upButtonOnDrive = new JoystickButton(driveStickTwo, Buttons.JoyUp);
+	public static final Button downButtonOnDrive = new JoystickButton(driveStickTwo, Buttons.JoyDown);
 	public static final Button bButtonOnDrive = new JoystickButton(driveStick, Buttons.B);
+	
 	
 	
 	public static Button yButton = new JoystickButton(gameMech , Buttons.Y);
@@ -47,7 +50,9 @@ public class OI
 	}
 	public OI() 
 	{
-		
+		upButtonOnDrive.whileHeld(new ArmUp());
+		downButtonOnDrive.whileHeld(new ArmDown());
+				
 		yButton.whenPressed(new ArmUp());
 		aButton.whenPressed(new ArmDown());
 		bButton.whenPressed(new ArmStop());

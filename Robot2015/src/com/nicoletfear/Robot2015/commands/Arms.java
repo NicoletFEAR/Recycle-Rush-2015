@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Arms extends Command
 {
 	
-	private static double leftStick, rightstick;
+	private static double rightstick;
 	
 
     public Arms() 
@@ -21,6 +21,7 @@ public class Arms extends Command
     // Called just before this Command runs the first time
     protected void initialize() 
     {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,9 +29,22 @@ public class Arms extends Command
 	{
     	
     	rightstick = OI.gameMech.getRawAxis(Axes.rightControlStickY);
-    	  
-    	Robot.Dog.MotorTestLeftSpeed(rightstick);
-    	Robot.Dog.MotorTestRightSpeed(rightstick);
+    	
+    	if(Math.abs(rightstick) < 0.05){
+    		/*double left = Robot.Dog.getLeftPosition();
+    		double right = Robot.Dog.getRightPosition();
+    		if ( left <  Robot.Dog.getLeftPosition()|| right >  Robot.Dog.getRightPosition()){
+    			new ArmUp();
+    		}
+    		else
+    		{*/
+    			Robot.Dog.stopMotorTestLeft();
+    			Robot.Dog.stopMotorTestRight();
+    		//}
+    	}else{
+    		Robot.Dog.MotorTestLeftSpeed(rightstick);
+        	Robot.Dog.MotorTestRightSpeed(rightstick);
+    	}
     	
     }
 

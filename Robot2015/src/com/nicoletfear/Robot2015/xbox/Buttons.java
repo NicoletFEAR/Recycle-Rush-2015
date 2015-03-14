@@ -5,6 +5,9 @@ public class Buttons
 	
 	//Logtech joystick
 	public static final int Trigger = 1;
+	public static final int JoyUp = 3;
+	public static final int JoyDown = 2;
+	
 	
 	//xbox controller
 	public static final int A = 1;

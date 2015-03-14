@@ -12,8 +12,10 @@
 package com.nicoletfear.Robot2015.subsystems;
 
 import com.nicoletfear.Robot2015.RobotMap;
+import com.nicoletfear.Robot2015.commands.Arms;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Dog extends Subsystem 
@@ -29,6 +31,7 @@ public class Dog extends Subsystem
     
     public void initDefaultCommand() 
     {
+        setDefaultCommand(new Arms());
     }
     
     public void stopMotorTestRight()
@@ -61,15 +64,22 @@ public class Dog extends Subsystem
     	dogMotorLeft.set(MAXGAMEMECH);
     }
     
+    
+    
     public void MotorTestRightSpeed(double Velo)
     {
-    	dogMotorRight.set(Velo);
+    	dogMotorRight.set(-Velo);
     }
     
     public void MotorTestLeftSpeed(double Velo)
     {
-    	dogMotorLeft.set(-Velo);
+    	dogMotorLeft.set(Velo);
     }
+   
+    
+    
+    
+    
     
     public double getRightVelocity()
     {

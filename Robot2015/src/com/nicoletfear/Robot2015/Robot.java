@@ -114,7 +114,12 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putNumber("RightArm Position", Dog.getRightPosition());
 		SmartDashboard.putNumber("RightArm Speed", Dog.getRightVelocity());
-				
+		
+	
+		
+		String version = ("Nicolet 3/7/15");
+		SmartDashboard.putString("", version);
+		
         Scheduler.getInstance().run();
     }
     

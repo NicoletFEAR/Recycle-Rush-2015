@@ -21,6 +21,8 @@ public class RobotMap
 	public static DigitalInput dogLimitSwitchTopLeft;
 	public static DigitalInput dogLimitSwitchBottomLeft;
     
+	
+	
     public static void init() 
     {
     	dogLimitSwitchTopRight = new DigitalInput(5);
