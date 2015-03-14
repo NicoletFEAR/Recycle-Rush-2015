@@ -1,43 +1,39 @@
 package com.nicoletfear.Robot2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import com.nicoletfear.Robot2015.OI;
+import com.nicoletfear.Robot2015.Subsystems;
 
-import com.nicoletfear.Robot2015.Robot;
-import com.nicoletfear.Robot2015.RobotMap;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ArmUpTest extends Command {
+public class Intake extends Command {
 
-    public ArmUpTest() {
-    	requires(Robot.dog);
+    public Intake() {
+    	requires(Subsystems.toteEater);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(RobotMap.dogLimitSwitchTop.get()){
-    		RobotMap.dogMotor.set(0.25);
-    	}else{
-    		RobotMap.dogMotor.set(0);
-    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(RobotMap.dogLimitSwitchTop.get()){
-    		RobotMap.dogMotor.set(0.25);
+    	if(OI.rbButton.get()){
+    		Subsystems.toteEater.intake();
     	}else{
-    		RobotMap.dogMotor.set(0);
+    		Subsystems.toteEater.stopEater();
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-      return false;
+        return false;
     }
-
+    
     // Called once after isFinished returns true
     protected void end() {
     }
@@ -45,5 +41,6 @@ public class ArmUpTest extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
